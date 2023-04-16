@@ -21,17 +21,17 @@ body {
   min-height: 100vh;
   background: var(--dark);
 }
-.notifications {
+.toast-notifications {
   position: fixed;
   top: 30px;
   right: 20px;
   box-shadow: 3px 3px 3px solid rgb(109, 9, 9);
 }
-.notifications :where(.toast, .column) {
+.toast-notifications :where(.toasty, .column) {
   display: flex;
   align-items: center;
 }
-.notifications .toast {
+.toast-notifications .toasty {
   width: 400px;
   position: relative;
   overflow: hidden;
@@ -57,7 +57,7 @@ body {
     transform: translateX(-10px);
   }
 }
-.notifications .toast.hide {
+.toast-notifications .toasty.hide {
   animation: hide_toast 0.3s ease forwards;
 }
 @keyframes hide_toast {
@@ -74,7 +74,7 @@ body {
     transform: translateX(calc(100% + 20px));
   }
 }
-.toast::before {
+.toasty::before {
   position: absolute;
   content: "";
   height: 3px;
@@ -88,42 +88,48 @@ body {
     width: 0%;
   }
 }
-.toast.success::before, .btn#success {
+.toasty.success::before, .btn#success {
   background: var(--success);
 }
-.toast.error::before, .btn#error {
+.toasty.error::before, .btn#error {
   background: var(--error);
 }
-.toast.warning::before, .btn#warning {
+.toasty.danger::before, .btn#error {
+    background: var(--error);
+  }
+.toasty.warning::before, .btn#warning {
   background: var(--warning);
 }
-.toast.info::before, .btn#info {
+.toasty.info::before, .btn#info {
   background: var(--info);
 }
-.toast .column i {
+.toasty .column i {
   font-size: 1.75rem;
 }
-.toast.success .column i {
+.toasty.success .column i {
   color: var(--success);
 }
-.toast.error .column i {
+.toasty.error .column i {
   color: var(--error);
 }
-.toast.warning .column i {
+.toasty.danger .column i {
+    color: var(--error);
+  }
+.toasty.warning .column i {
   color: var(--warning);
 }
-.toast.info .column i {
+.toasty.info .column i {
   color: var(--info);
 }
-.toast .column span {
+.toasty .column span {
   font-size: 1.07rem;
   margin-left: 12px;
 }
-.toast i:last-child {
+.toasty i:last-child {
   color: #aeb0d7;
   cursor: pointer;
 }
-.toast i:last-child:hover {
+.toasty i:last-child:hover {
   color: var(--dark);
 }
 .buttons .btn {
@@ -138,10 +144,10 @@ body {
 }
 
 @media screen and (max-width: 530px) {
-  .notifications {
+  .toast-notifications {
     width: 95%;
   }
-  .notifications .toast {
+  .toast-notifications .toasty {
     width: 100%;
     font-size: 1rem;
     margin-left: 20px;

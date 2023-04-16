@@ -1,4 +1,4 @@
-const notifications = document.querySelector(".notifications"),
+const notifications = document.querySelector(".toast-notifications"),
 buttons = document.querySelectorAll(".buttons .btn");
 
 // Object containing details for different types of toasts
@@ -32,7 +32,7 @@ const createToast = (id) => {
     // Getting the icon and text for the toast based on the id passed
     const { icon, text } = toastDetails[id];
     const toast = document.createElement("li"); // Creating a new 'li' element for the toast
-    toast.className = `toast ${id}`; // Setting the classes for the toast
+    toast.className = `toasty ${id}`; // Setting the classes for the toast
     // Setting the inner HTML for the toast
     toast.innerHTML = `<div class="column">
                          <i class="fa-solid ${icon}"></i>
